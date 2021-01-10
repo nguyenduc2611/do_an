@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MotorLocation</string>
+    <string name="title_activity_maps">MotorLocation</string>
+    <string name="actionbar_title">Hệ thống định vị xe</string>
+    <string name="prefs_phone_value">current_phone</string>
+    <string name="prefsPhone">phone_number</string>
+</resources>

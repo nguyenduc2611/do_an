@@ -1,0 +1,57 @@
+Added Component: Designator=Arduino1(Arduino Nano)
+Added Component: Designator=JDC1(DC0)
+Added Component: Designator=L1(BUCK_LM2596)
+Added Component: Designator=L2(BUCK_LM2596)
+Added Component: Designator=LCD1(JP4-C1T)
+Added Component: Designator=NEO1(JP4-C1T)
+Added Component: Designator=PH1(JP3-C1T)
+Added Component: Designator=SIM1(JP4-C1T)
+Added Pin To Net: NetName=GND Pin=Arduino1-GND
+Added Pin To Net: NetName=GND Pin=Arduino1-GND
+Added Pin To Net: NetName=GND Pin=L1-3
+Added Pin To Net: NetName=GND Pin=L2-3
+Added Pin To Net: NetName=GND Pin=LCD1-3
+Added Pin To Net: NetName=GND Pin=NEO1-2
+Added Pin To Net: NetName=GND Pin=PH1-2
+Added Pin To Net: NetName=GND Pin=SIM1-2
+Added Net: Name=GND
+Added Pin To Net: NetName=NetJDC1_1 Pin=JDC1-1
+Added Pin To Net: NetName=NetJDC1_1 Pin=L1-1
+Added Pin To Net: NetName=NetJDC1_1 Pin=L2-1
+Added Net: Name=NetJDC1_1
+Added Pin To Net: NetName=NetJDC1_2 Pin=JDC1-2
+Added Pin To Net: NetName=NetJDC1_2 Pin=JDC1-3
+Added Pin To Net: NetName=NetJDC1_2 Pin=L1-2
+Added Pin To Net: NetName=NetJDC1_2 Pin=L2-2
+Added Net: Name=NetJDC1_2
+Added Pin To Net: NetName=PH Pin=Arduino1-A1
+Added Pin To Net: NetName=PH Pin=PH1-3
+Added Net: Name=PH
+Added Pin To Net: NetName=RX_NEO Pin=Arduino1-D3
+Added Net: Name=RX_NEO
+Added Pin To Net: NetName=RX_SIM Pin=Arduino1-D11
+Added Pin To Net: NetName=RX_SIM Pin=SIM1-4
+Added Net: Name=RX_SIM
+Added Pin To Net: NetName=SCL Pin=Arduino1-A5
+Added Pin To Net: NetName=SCL Pin=LCD1-1
+Added Net: Name=SCL
+Added Pin To Net: NetName=SDA Pin=Arduino1-A4
+Added Pin To Net: NetName=SDA Pin=LCD1-2
+Added Net: Name=SDA
+Added Pin To Net: NetName=TX_NEO Pin=Arduino1-D2
+Added Pin To Net: NetName=TX_NEO Pin=NEO1-3
+Added Net: Name=TX_NEO
+Added Pin To Net: NetName=TX_SIM Pin=Arduino1-D10
+Added Pin To Net: NetName=TX_SIM Pin=SIM1-3
+Added Net: Name=TX_SIM
+Added Pin To Net: NetName=VCC_SIM Pin=L2-4
+Added Pin To Net: NetName=VCC_SIM Pin=SIM1-1
+Added Net: Name=VCC_SIM
+Added Pin To Net: NetName=VCC Pin=Arduino1-5V
+Added Pin To Net: NetName=VCC Pin=L1-4
+Added Pin To Net: NetName=VCC Pin=LCD1-4
+Added Pin To Net: NetName=VCC Pin=NEO1-1
+Added Pin To Net: NetName=VCC Pin=PH1-1
+Added Net: Name=VCC
+Added Class: Name=Sheet2
+Added Room: Name=Sheet2

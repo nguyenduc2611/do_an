@@ -1,0 +1,7 @@
+Added Component: Designator=L2(BUCK_LM2596)
+Added Pin To Net: NetName=NetJDC1_1 Pin=L2-1
+Added Pin To Net: NetName=NetJDC1_2 Pin=L2-2
+Added Pin To Net: NetName=GND Pin=L2-3
+Added Pin To Net: NetName=VCC_SIM Pin=L2-4
+Added Member To Class: ClassName=Sheet2 Member=Component L2 BUCK_LM2596
+Added Room: Name=Sheet2

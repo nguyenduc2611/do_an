@@ -1,0 +1,70 @@
+Added Component: Designator=Arduino1(Arduino Nano)
+Added Component: Designator=C1(JP2-C1T)
+Added Component: Designator=C2(CA-ALU-2.54)
+Added Component: Designator=CON1(JP3-C1T)
+Added Component: Designator=JDC1(DC0)
+Added Component: Designator=L1(BUCK_LM2596)
+Added Component: Designator=LCD1(JP4-C1T)
+Added Component: Designator=NEO1(JP4-C1T)
+Added Component: Designator=R1(RES-1/4W)
+Added Component: Designator=RELAY1(JP3-C1T)
+Added Component: Designator=SIM1(JP4-C1T)
+Added Pin To Net: NetName=BUTTON Pin=Arduino1-D9
+Added Pin To Net: NetName=BUTTON Pin=C1-2
+Added Pin To Net: NetName=BUTTON Pin=C2-1
+Added Pin To Net: NetName=BUTTON Pin=R1-1
+Added Net: Name=BUTTON
+Added Pin To Net: NetName=CON Pin=Arduino1-A1
+Added Pin To Net: NetName=CON Pin=CON1-3
+Added Net: Name=CON
+Added Pin To Net: NetName=GND Pin=Arduino1-GND
+Added Pin To Net: NetName=GND Pin=Arduino1-GND
+Added Pin To Net: NetName=GND Pin=C2-2
+Added Pin To Net: NetName=GND Pin=CON1-2
+Added Pin To Net: NetName=GND Pin=L1-3
+Added Pin To Net: NetName=GND Pin=LCD1-3
+Added Pin To Net: NetName=GND Pin=NEO1-2
+Added Pin To Net: NetName=GND Pin=R1-2
+Added Pin To Net: NetName=GND Pin=RELAY1-2
+Added Pin To Net: NetName=GND Pin=SIM1-2
+Added Net: Name=GND
+Added Pin To Net: NetName=NetJDC1_1 Pin=JDC1-1
+Added Pin To Net: NetName=NetJDC1_1 Pin=L1-1
+Added Net: Name=NetJDC1_1
+Added Pin To Net: NetName=NetJDC1_2 Pin=JDC1-2
+Added Pin To Net: NetName=NetJDC1_2 Pin=JDC1-3
+Added Pin To Net: NetName=NetJDC1_2 Pin=L1-2
+Added Net: Name=NetJDC1_2
+Added Pin To Net: NetName=RELAY Pin=Arduino1-D8
+Added Pin To Net: NetName=RELAY Pin=RELAY1-3
+Added Net: Name=RELAY
+Added Pin To Net: NetName=RX_NEO Pin=Arduino1-D3
+Added Pin To Net: NetName=RX_NEO Pin=NEO1-4
+Added Net: Name=RX_NEO
+Added Pin To Net: NetName=RX_SIM Pin=Arduino1-D11
+Added Pin To Net: NetName=RX_SIM Pin=SIM1-4
+Added Net: Name=RX_SIM
+Added Pin To Net: NetName=SCL Pin=Arduino1-A5
+Added Pin To Net: NetName=SCL Pin=LCD1-1
+Added Net: Name=SCL
+Added Pin To Net: NetName=SDA Pin=Arduino1-A4
+Added Pin To Net: NetName=SDA Pin=LCD1-2
+Added Net: Name=SDA
+Added Pin To Net: NetName=TX_NEO Pin=Arduino1-D2
+Added Pin To Net: NetName=TX_NEO Pin=NEO1-3
+Added Net: Name=TX_NEO
+Added Pin To Net: NetName=TX_SIM Pin=Arduino1-D10
+Added Pin To Net: NetName=TX_SIM Pin=SIM1-3
+Added Net: Name=TX_SIM
+Added Pin To Net: NetName=VCC_SIM Pin=SIM1-1
+Added Net: Name=VCC_SIM
+Added Pin To Net: NetName=VCC Pin=Arduino1-5V
+Added Pin To Net: NetName=VCC Pin=C1-1
+Added Pin To Net: NetName=VCC Pin=CON1-1
+Added Pin To Net: NetName=VCC Pin=L1-4
+Added Pin To Net: NetName=VCC Pin=LCD1-4
+Added Pin To Net: NetName=VCC Pin=NEO1-1
+Added Pin To Net: NetName=VCC Pin=RELAY1-1
+Added Net: Name=VCC
+Added Class: Name=Sheet2
+Added Room: Name=Sheet2
