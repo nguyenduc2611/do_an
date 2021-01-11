@@ -1,0 +1,210 @@
+#include <ESP8266WiFi.h>
+#include "Adafruit_MQTT.h"
+#include "Adafruit_MQTT_Client.h"
+#include <SimpleTimer.h>
+#include <BlynkSimpleEsp8266.h>
+ 
+#define WIFI_SSID "Duc Long Electronics"
+#define WIFI_PASS "linhkienhadong.vn"
+#define MQTT_SERV "io.adafruit.com"
+#define MQTT_PORT 1883
+#define MQTT_NAME "ducnguyen9411"
+#define MQTT_PASS "aio_Fsny58jhUwv0wPaAErklgubq2WKy"
+
+#define ON 1
+#define OFF 2
+
+char status_light = OFF;
+char status_door = OFF;
+char status_fan = OFF;
+char status_mode_door = OFF;
+uint32_t time_run = 0;
+SimpleTimer timer;
+char data[10] = {0};
+char count = 0;
+char temp = 0;
+char hum = 0;
+char string_data[5]={0};
+char *ssid      = "Duc Long Electronics";               // Ten WiFi SSID
+char *password  = "linhkienhadong.vn";               // Mat khau wifi
+char auth[] = "kZEITAMokBoYsofChTetud34c4Vlv7YG";    //AuthToken copy ở Blynk Project
+
+//Set up MQTT and WiFi clients
+WiFiClient client;
+Adafruit_MQTT_Client mqtt(&client, MQTT_SERV, MQTT_PORT, MQTT_NAME, MQTT_PASS);
+ 
+//Set up the feed you're subscribing to
+Adafruit_MQTT_Subscribe onoff = Adafruit_MQTT_Subscribe(&mqtt, MQTT_NAME "/f/onoff");
+ 
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  Serial.print("\n\nConnecting Wifi... ");
+  WiFi.begin(WIFI_SSID, WIFI_PASS);
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    delay(500);
+  }
+  Blynk.begin(auth, ssid, password);
+  timer.setInterval(500, sendUptime);
+  Serial.println("OK!");
+  //Subscribe to the onoff feed
+  mqtt.subscribe(&onoff);
+  pinMode(D5, OUTPUT);
+  pinMode(D6, OUTPUT);
+  digitalWrite(D5, HIGH);
+  digitalWrite(D6, HIGH);
+}
+
+void sendUptime()
+{
+
+  Blynk.virtualWrite(V1, 0);
+  Blynk.virtualWrite(V4, temp);
+  Blynk.virtualWrite(V5, hum);
+}
+
+BLYNK_WRITE(V0)
+{
+  char light = param.asInt();
+  if(light == 0)
+  {
+    status_light = OFF;
+  }
+  else if(light == 1)
+  {
+    status_light = ON;
+  }
+  else
+  {
+    
+  }
+}
+
+BLYNK_WRITE(V1)
+{
+  char door = param.asInt();
+  if(door == 0)
+  {
+    status_door = OFF;
+    Serial.println("OFFV1");
+  }
+  else if(door == 1)
+  {
+    Serial.println("ONV1");
+    status_door = ON;
+  }
+  else
+  {
+    
+  }
+}
+
+BLYNK_WRITE(V2)
+{
+  char fan = param.asInt();
+  if(fan == 0)
+  {
+    status_fan = OFF;
+  }
+  else if(fan == 1)
+  {
+    status_fan = ON;
+  }
+  else
+  {
+    
+  }
+}
+
+BLYNK_WRITE(V3)
+{
+  char door = param.asInt();
+  if(door == 0)
+  {
+    status_mode_door = OFF;
+  }
+  else if(door == 1)
+  {
+    status_mode_door = ON;
+  }
+  else
+  {
+    
+  }
+}
+
+void loop() {
+  Voice_Control();
+  Blynk.run();
+  timer.run();
+}
+
+void Voice_Control(void)
+{
+    MQTT_connect();
+  //Read from our subscription queue until we run out, or
+  //wait up to 5 seconds for subscription to update
+  Adafruit_MQTT_Subscribe * subscription;
+  while ((subscription = mqtt.readSubscription(2000)))
+  {
+    //If we're in here, a subscription updated...
+    if (subscription == &onoff)
+    {
+      //Print the new value to the serial monitor
+      Serial.print("onoff: ");
+      Serial.println((char*) onoff.lastread);
+     //If the new value is  "ON", turn the light on.
+     //Otherwise, turn it off.
+      if (!strcmp((char*) onoff.lastread, "ON"))
+      {
+        //Active low logic
+        Serial.println("ON");
+        digitalWrite(D5, LOW);
+        digitalWrite(D6, LOW);
+      }
+      else
+      {
+        Serial.println("OFF");
+        digitalWrite(D5, HIGH);
+        digitalWrite(D6, HIGH);
+      }
+    }
+
+
+    
+  }
+ 
+  // ping the server to keep the mqtt connection alive
+  if (!mqtt.ping())
+  {
+    mqtt.disconnect();
+  }
+}
+
+void MQTT_connect()
+{
+  int8_t ret;
+  // Stop if already connected.
+  if (mqtt.connected())
+  {
+    return;
+  }
+  Serial.print("Connecting to MQTT... ");
+  uint8_t retries = 3;
+  while ((ret = mqtt.connect()) != 0) // connect will return 0 for connected
+  {
+       Serial.println(mqtt.connectErrorString(ret));
+       Serial.println("Retrying MQTT connection in 5 seconds...");
+       mqtt.disconnect();
+       delay(5000);  // wait 5 seconds
+       retries--;
+       if (retries == 0)
+       {
+         // basically die and wait for WDT to reset me
+         while (1);
+       }
+  }
+  Serial.println("MQTT Connected!");
+}
